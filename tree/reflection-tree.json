@@ -18,14 +18,12 @@
 
     {"id": "A1_Q2_INT", "parent": "A1_D1", "type": "question",
       "text": "What made things work?",
-      "options": ["My effort", "Team support", "Luck", "Adaptation"],
-      "signal": "axis1:internal"
+      "options": ["My effort", "Team support", "Luck", "Adaptation"]
     },
 
     {"id": "A1_Q2_EXT", "parent": "A1_D1", "type": "question",
       "text": "When things failed, what did you feel?",
-      "options": ["Out of control", "Waiting on others", "Blocked", "Stuck"],
-      "signal": "axis1:external"
+      "options": ["Out of control", "Waiting on others", "Blocked", "Stuck"]
     },
 
     {"id": "A1_R1", "parent": "A1_Q2_INT", "type": "reflection",
@@ -38,18 +36,18 @@
       "signal": "axis1:external"
     },
 
-    {"id": "BRIDGE_1_2", "parent": "A1_R1", "type": "bridge",
-      "text": "Now let’s shift to what you contributed.",
+    {"id": "BRIDGE_1_2A", "parent": "A1_R1", "type": "bridge",
+      "text": "Now let's shift to what you contributed.",
       "target": "A2_Q1"
     },
 
     {"id": "BRIDGE_1_2B", "parent": "A1_R2", "type": "bridge",
-      "text": "Now let’s shift to what you contributed.",
+      "text": "Now let's shift to what you contributed.",
       "target": "A2_Q1"
     },
 
     {"id": "A2_Q1", "type": "question",
-      "text": "What describes your interaction today?",
+      "text": "Which best describes your behavior today?",
       "options": ["Helped someone", "Did extra work", "Expected recognition", "Felt ignored"]
     },
 
@@ -68,22 +66,22 @@
     },
 
     {"id": "A2_R2", "parent": "A2_D1", "type": "reflection",
-      "text": "You focused on what you deserved. Notice that pattern.",
+      "text": "You focused on expectations. Notice that pattern.",
       "signal": "axis2:entitlement"
     },
 
-    {"id": "BRIDGE_2_3", "parent": "A2_R1", "type": "bridge",
-      "text": "Now let’s expand your perspective.",
+    {"id": "BRIDGE_2_3A", "parent": "A2_R1", "type": "bridge",
+      "text": "Now expand your perspective.",
       "target": "A3_Q1"
     },
 
     {"id": "BRIDGE_2_3B", "parent": "A2_R2", "type": "bridge",
-      "text": "Now let’s expand your perspective.",
+      "text": "Now expand your perspective.",
       "target": "A3_Q1"
     },
 
     {"id": "A3_Q1", "type": "question",
-      "text": "Who was most affected by your day?",
+      "text": "Who did your actions impact the most?",
       "options": ["Only me", "My team", "One colleague", "Customer"]
     },
 
@@ -97,27 +95,27 @@
     },
 
     {"id": "A3_R1", "parent": "A3_D1", "type": "reflection",
-      "text": "You focused on yourself. Try widening your lens.",
+      "text": "You focused inward. Try widening your lens.",
       "signal": "axis3:self"
     },
 
     {"id": "A3_R2", "parent": "A3_D1", "type": "reflection",
-      "text": "You considered your team. That builds alignment.",
+      "text": "You considered your team. That's alignment.",
       "signal": "axis3:team"
     },
 
     {"id": "A3_R3", "parent": "A3_D1", "type": "reflection",
-      "text": "You noticed others’ struggles. That shows empathy.",
+      "text": "You noticed others. That's empathy.",
       "signal": "axis3:empathy"
     },
 
     {"id": "A3_R4", "parent": "A3_D1", "type": "reflection",
-      "text": "You focused on the bigger purpose. That’s impact thinking.",
+      "text": "You thought about impact. That's leadership thinking.",
       "signal": "axis3:impact"
     },
 
     {"id": "SUMMARY", "parent": "A3_R1", "type": "summary",
-      "text": "You showed patterns across agency, contribution, and perspective today."
+      "text": "Today you showed patterns across control, contribution, and awareness."
     },
 
     {"id": "END", "parent": "SUMMARY", "type": "end",
