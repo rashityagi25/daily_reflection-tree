@@ -1,4 +1,3 @@
-
 import json
 
 with open("../tree/reflection-tree.json") as f:
@@ -6,12 +5,15 @@ with open("../tree/reflection-tree.json") as f:
 
 nodes = {node["id"]: node for node in data["nodes"]}
 
+def get_next(node_id):
+    children = [n for n in nodes.values() if n.get("parent") == node_id]
+    return children[0]["id"] if children else None
+
 def run():
     current = "START"
 
-    while True:
+    while current:
         node = nodes[current]
-
         print("\n" + node.get("text", ""))
 
         if node["type"] == "end":
@@ -25,23 +27,22 @@ def run():
             choice = int(input("Choose: ")) - 1
             answer = options[choice]
 
-            # find decision
-            next_node = None
-            for n in nodes.values():
-                if n.get("parent") == node["id"] and n["type"] == "decision":
-                    next_node = n["rules"][answer]
+            decision = [n for n in nodes.values() if n.get("parent") == current and n["type"] == "decision"][0]
+            current = decision["rules"][answer]
 
-            current = next_node
+        elif node["type"] == "reflection":
+            input("Press Enter...")
+            current = get_next(current)
 
-        elif node["type"] == "decision":
-            continue
+        elif node["type"] == "bridge":
+            input("Press Enter...")
+            current = node["target"]
 
-        elif node["type"] in ["reflection", "bridge", "summary"]:
-            input("Press Enter to continue...")
-            children = [n for n in nodes.values() if n.get("parent") == node["id"]]
-            if children:
-                current = children[0]["id"]
-            else:
-                current = node.get("target")
+        elif node["type"] == "summary":
+            input("Press Enter...")
+            current = get_next(current)
+
+        else:
+            current = get_next(current)
 
 run()
